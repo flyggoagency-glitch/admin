@@ -1,22 +1,24 @@
-import type { OpenNextConfig } from 'open-next/types/open-next.js';
-
 export default {
   default: {
     override: {
-      wrapper: 'cloudflare-node',
-      converter: 'edge',
-      generateProvider: 'cloudflare',
+      wrapper: "cloudflare-node",
+      converter: "edge",
+      proxyExternalRequest: "fetch",
+      incrementalCache: "dummy",
+      tagCache: "dummy",
+      queue: "dummy",
     },
   },
+  edgeExternals: ["node:crypto"],
   middleware: {
     external: true,
     override: {
-      wrapper: 'cloudflare-edge',
-      converter: 'edge',
-      proxyExternalRequest: 'fetch',
+      wrapper: "cloudflare-edge",
+      converter: "edge",
+      proxyExternalRequest: "fetch",
+      incrementalCache: "dummy",
+      tagCache: "dummy",
+      queue: "dummy",
     },
   },
-  dangerous: {
-    enableCacheInterception: false,
-  },
-} satisfies OpenNextConfig;
+}
