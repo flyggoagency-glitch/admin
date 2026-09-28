@@ -51,10 +51,6 @@ export function Sidebar() {
   const [isLoadingStats, setIsLoadingStats] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  useEffect(() => {
     let unsubscribeSnapshot: (() => void) | undefined;
     const unsubscribeAuth = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
@@ -318,6 +314,7 @@ export function Sidebar() {
     </>
   );
 }
+
 
 
 
