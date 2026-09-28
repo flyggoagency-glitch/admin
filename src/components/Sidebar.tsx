@@ -2,16 +2,13 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useTheme } from 'next-themes';
 import { 
   LayoutDashboard, 
   CheckSquare, 
-  FolderKanban, 
-  FileText, 
-  Clock, 
+
   CalendarCheck, 
   Calendar,
-  Files, 
+
   MessageSquare, 
 
   Settings,
@@ -321,6 +318,7 @@ export function Sidebar() {
     </>
   );
 }
+
 
 
 
