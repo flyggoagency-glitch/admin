@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 };
 
 import { ThemeProvider } from "@/components/ThemeProvider";
-import { RoleGuard } from "@/components/RoleGuard";
+import dynamic from "next/dynamic";`nconst RoleGuard = dynamic(() => import("@/components/RoleGuard").then(m => m.RoleGuard), { ssr: false });
 
 export default function RootLayout({
   children,
@@ -43,3 +43,4 @@ export default function RootLayout({
     </html>
   );
 }
+
