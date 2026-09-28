@@ -1,7 +1,7 @@
 import { initializeApp, getApps, getApp } from "firebase/app";
 import { getAnalytics, isSupported } from "firebase/analytics";
-import { getAuth } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
+import { getAuth, Auth } from "firebase/auth";
+import { getFirestore, Firestore } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyABsfBZk0PRDZID91c1vZPHWr6lIeysQ3c",
@@ -13,18 +13,15 @@ const firebaseConfig = {
   measurementId: "G-ES6SDSXPKB"
 };
 
-// Initialize Firebase (check if already initialized to avoid Next.js dev server errors)
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
 
-// Initialize Auth
-const auth = getAuth(app);
+let auth: Auth | any = null;
+let db: Firestore | any = null;
+let analytics: any = null;
 
-// Initialize Firestore
-const db = getFirestore(app);
-
-// Initialize Analytics only in the browser (it will crash during SSR if not checked)
-let analytics = null;
 if (typeof window !== "undefined") {
+  auth = getAuth(app);
+  db = getFirestore(app);
   isSupported().then((yes) => yes ? (analytics = getAnalytics(app)) : null);
 }
 
