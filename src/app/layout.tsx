@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 };
 
 import { ThemeProvider } from "@/components/ThemeProvider";
-import { RoleGuard } from "@/components/RoleGuard";
+import { RoleGuardWrapper as RoleGuard } from "@/components/RoleGuardWrapper";
 
 export default function RootLayout({
   children,
@@ -43,6 +43,7 @@ export default function RootLayout({
     </html>
   );
 }
+
 
 
 
