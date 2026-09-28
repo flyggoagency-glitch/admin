@@ -13,11 +13,10 @@ import {
   Calendar,
   Files, 
   MessageSquare, 
-  Bell, 
+
   Settings,
   LogOut,
-  Sun,
-  Moon,
+
   History,
   AlertCircle
 } from 'lucide-react';
@@ -42,8 +41,7 @@ const navItems = [
 export function Sidebar() {
   const router = useRouter();
   const pathname = usePathname();
-  const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+
   const [unreadCount, setUnreadCount] = useState(0);
   const initialLoad = useRef(true);
   const [showSignOutModal, setShowSignOutModal] = useState(false);
@@ -103,7 +101,7 @@ export function Sidebar() {
   }, []);
 
   const handleSignOutClick = async () => {
-    const currentHour = new Date().getHours();
+
     // TEST MODE: Disabled 6 PM restriction temporarily
     // if (currentHour < 18) { // 18 is 6:00 PM
     //   setShowEarlySignOutModal(true);
@@ -323,6 +321,7 @@ export function Sidebar() {
     </>
   );
 }
+
 
 
 

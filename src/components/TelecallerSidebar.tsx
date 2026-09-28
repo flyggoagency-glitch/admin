@@ -107,7 +107,7 @@ export default function TelecallerSidebar() {
   ];
 
   const handleSignOutClick = async () => {
-    const currentHour = new Date().getHours();
+    // const currentHour = new Date().getHours();
     // TEST MODE: Disabled 5 PM restriction temporarily
     // if (currentHour < 17) { // 17 is 5:00 PM
     //   setShowEarlySignOutModal(true);
@@ -327,6 +327,7 @@ export default function TelecallerSidebar() {
       </>
   );
 }
+
 
 
 

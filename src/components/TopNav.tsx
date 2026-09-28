@@ -1,6 +1,6 @@
 "use client";
 
-import { Bell } from 'lucide-react';
+
 import { useState, useEffect } from 'react';
 import { auth, db } from '@/lib/firebase';
 import { onAuthStateChanged, User } from 'firebase/auth';
@@ -95,7 +95,8 @@ export function TopNav() {
           </div>
           <div className="w-8 h-8 rounded-full bg-foreground flex items-center justify-center text-background overflow-hidden border border-border">
             {profilePic ? (
-              <img src={profilePic} alt="Avatar" className="w-full h-full object-cover" />
+                /* eslint-disable-next-line @next/next/no-img-element */
+                <img src={profilePic} alt="Avatar" className="w-full h-full object-cover" />
             ) : (
               <span className="font-bold text-xs">{initial}</span>
             )}
@@ -113,3 +114,5 @@ export function TopNav() {
     </header>
   );
 }
+
+
