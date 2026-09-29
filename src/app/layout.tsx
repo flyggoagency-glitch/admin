@@ -19,6 +19,7 @@ export const metadata: Metadata = {
 
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { RoleGuardWrapper as RoleGuard } from "@/components/RoleGuardWrapper";
+import { MobileBlocker } from "@/components/MobileBlocker";
 
 export default function RootLayout({
   children,
@@ -28,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={${geistSans.variable}  antialiased}
       >
         <ThemeProvider
           attribute="class"
@@ -36,6 +37,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <MobileBlocker />
           <RoleGuard />
           {children}
         </ThemeProvider>
@@ -43,7 +45,3 @@ export default function RootLayout({
     </html>
   );
 }
-
-
-
-
